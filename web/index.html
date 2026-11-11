@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- Tarayıcı kabuğu: meta/og etiketleri, koyu yükleme ekranı (AGENTS.md §10.4) ve Flutter bootstrap. -->
+<html lang="tr">
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <!-- Yakınlaştırma kapalı: iOS, sohbet kutusuna odaklanınca sayfayı büyütür ve tam ekran Flutter yüzeyini kaydırır. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#0A0A0A">
+
+  <!-- Katılımcı: <title>, description, og:* ve twitter:* satırları (başlık, açıklama, site adresi, og.jpg adresi),
+       apple-mobile-web-app-title ve aşağıdaki yükleme ekranı adını (MUSTAFA KARA) kendi adınla değiştir;
+       uygulama adı web/manifest.json'da (name, short_name). README §3 -->
+  <title>Mustafa KARA — Yazılım Mühendisi</title>
+  <meta name="description" content="Mustafa KARA — yazılım mühendisi, mobil geliştirici. Kaydırdıkça anlatan tek sayfalık portfolyo; Flutter Web, Firebase, Gemini.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mustafa KARA — Yazılım Mühendisi">
+  <meta property="og:description" content="Kaydırdıkça anlatan tek sayfalık portfolyo. Flutter Web, Firebase, Gemini; kod ajanlarla yazıldı.">
+  <meta property="og:url" content="https://mustafakara.website/">
+  <meta property="og:image" content="https://mustafakara.website/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mustafa KARA — Yazılım Mühendisi">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mustafa KARA — Yazılım Mühendisi">
+  <meta name="twitter:description" content="Kaydırdıkça anlatan tek sayfalık portfolyo. Flutter Web, Firebase, Gemini; kod ajanlarla yazıldı.">
+  <meta name="twitter:image" content="https://mustafakara.website/og.jpg">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Mustafa KARA">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    /* Renkler AGENTS.md §10.2'den elle kopyalandı: bg #0A0A0A, border rgba(255,255,255,.08), textMuted #9A9A94, accent #C8F04E */
+    html, body { margin: 0; height: 100%; background: #0A0A0A; }
+
+    #loader {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      background: #0A0A0A;
+      color: #9A9A94;
+      font: 500 11px/1 system-ui, -apple-system, "Segoe UI", sans-serif;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      transition: opacity 250ms cubic-bezier(.33, 1, .68, 1); /* easeOutCubic */
+    }
+    #loader.is-done { opacity: 0; pointer-events: none; }
+    .loader__name { margin: 0; }
+    .loader__line {
+      position: relative;
+      width: 160px;
+      height: 1px;
+      background: rgba(255, 255, 255, .08);
+    }
+    .loader__fill {
+      position: absolute;
+      left: 0;
+      top: -1px;
+      height: 2px;
+      width: 0;
+      background: #C8F04E;
+      animation: loader-fill 2.5s cubic-bezier(.33, 1, .68, 1) forwards;
+    }
+    @keyframes loader-fill { to { width: 80%; } }
+  </style>
+
+  <!-- Lokal App Check debug token (README adım 2.8). Deploy öncesi yorumda kalmalı. -->
+  <!-- <script>self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;</script> -->
+</head>
+<body>
+  <div id="loader" aria-hidden="true">
+    <p class="loader__name">MUSTAFA KARA</p>
+    <div class="loader__line"><i class="loader__fill"></i></div>
+  </div>
+
+  <script>
+    // Flutter ilk kareyi çizince yükleme ekranını söndür, geçiş bitince DOM'dan kaldır.
+    window.addEventListener('flutter-first-frame', function () {
+      var loader = document.getElementById('loader');
+      if (!loader) return;
+      loader.addEventListener('transitionend', function () { loader.remove(); }, { once: true });
+      loader.classList.add('is-done');
+    }, { once: true });
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>

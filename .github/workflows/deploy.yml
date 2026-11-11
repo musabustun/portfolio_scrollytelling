@@ -1,0 +1,85 @@
+# Firebase Hosting deploy: main'e push → analyze + test + wasm build + canlı yayın; PR tetiklemez;
+# başka daldan elle (workflow_dispatch) tetiklenirse yalnızca build.
+# 4 secret repo Settings → Secrets and variables → Actions'ta tanımlanır; adları ve nereden alındıkları README.md §4'te.
+# Bu dosyada hiçbir literal değer (proje ID, anahtar, domain) yok; hepsi secret'tan okunur.
+# Secret yoksa (fork, ilk kurulum) analyze + test + build yine çalışır, yalnızca deploy adımı atlanır.
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      # secrets bağlamı adım if:'lerinde kullanılamaz; deploy kararı job env'i üzerinden taşınır.
+      HAS_DEPLOY_SECRETS: ${{ secrets.FIREBASE_SERVICE_ACCOUNT != '' && secrets.FIREBASE_PROJECT_ID != '' }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          # Token .git/config'e yazılmaz; sonraki adımlar repo kimliğiyle git işlemi yapamaz.
+          persist-credentials: false
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      # lib/firebase_options.dart .gitignore'dadır (AGENTS.md §2 karar 7); secret'tan ya da placeholder'dan üretilir.
+      - name: Firebase ayarı
+        env:
+          FIREBASE_OPTIONS_DART: ${{ secrets.FIREBASE_OPTIONS_DART }}
+        run: |
+          if [ -n "$FIREBASE_OPTIONS_DART" ]; then
+            printf '%s\n' "$FIREBASE_OPTIONS_DART" > lib/firebase_options.dart
+          else
+            cp lib/firebase_options.dart.example lib/firebase_options.dart
+            echo "::warning::FIREBASE_OPTIONS_DART boş; placeholder ile build (sohbet kapalı)"
+          fi
+
+      # Gerçek Firebase ayarı varken site key boşsa App Check kurulmaz ve sohbet kapalı yayınlanır
+      # (main.dart fail-closed, AGENTS.md §6); bunu sessizce yayınlamak yerine iş burada durur.
+      - name: App Check anahtarı
+        env:
+          FIREBASE_OPTIONS_DART: ${{ secrets.FIREBASE_OPTIONS_DART }}
+          RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
+        run: |
+          if [ -n "$FIREBASE_OPTIONS_DART" ] && [ -z "$RECAPTCHA_SITE_KEY" ]; then
+            echo "::error::FIREBASE_OPTIONS_DART dolu ama RECAPTCHA_SITE_KEY boş: App Check olmadan sohbet kapalı yayınlanır. RECAPTCHA_SITE_KEY secret'ını ekle (README §4)."
+            exit 1
+          fi
+
+      - run: flutter pub get
+
+      - run: flutter analyze
+
+      - run: flutter test
+
+      # Site key boşsa boş string geçer; main.dart App Check'i atlar, sohbet kapalı kalır (AGENTS.md §6).
+      - name: Build (wasm)
+        env:
+          RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
+        run: flutter build web --wasm --dart-define=RECAPTCHA_SITE_KEY="$RECAPTCHA_SITE_KEY"
+
+      - name: Deploy
+        if: env.HAS_DEPLOY_SECRETS == 'true' && github.ref == 'refs/heads/main'
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          projectId: ${{ secrets.FIREBASE_PROJECT_ID }}
+          channelId: live
+
+      - name: Deploy atlandı
+        if: env.HAS_DEPLOY_SECRETS != 'true' || github.ref != 'refs/heads/main'
+        run: |
+          echo "::notice::Deploy atlandı: FIREBASE_SERVICE_ACCOUNT / FIREBASE_PROJECT_ID yok (README §4) ya da dal main değil"

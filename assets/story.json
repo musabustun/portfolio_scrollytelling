@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "title": "Mustafa KARA — Yazılım Mühendisi",
+    "owner": "Mustafa KARA",
+    "tagline": "Merhaba, ben Mustafa.",
+    "accent": "#C8F04E",
+    "background": "#0B0D12"
+  },
+  "chapters": [
+    {
+      "id": "acilis",
+      "type": "video",
+      "title": "Açılış",
+      "scrollLength": 6,
+      "video": "video/cover.mp4",
+      "poster": "video/cover.jpg",
+      "videoMobile": "video/cover_mobile.mp4",
+      "posterMobile": "video/cover_mobile.jpg",
+      "overlays": [
+        {
+          "at": [
+            0.0,
+            0.25
+          ],
+          "title": "Mustafa KARA",
+          "body": "Yazılım mühendisi, mobil geliştirici. Bir fikri alır, App Store ve Google Play'de yayına kadar götürürüm."
+        },
+        {
+          "at": [
+            0.35,
+            0.6
+          ],
+          "body": "5 yıldır Flutter. İki uygulamam mağazalarda, sekiz web sitem yayında."
+        },
+        {
+          "at": [
+            0.7,
+            1.0
+          ],
+          "body": "Bildiğimi anlatmayı da severim: sahnede, atölyede, toplulukta."
+        }
+      ]
+    },
+    {
+      "id": "ben-kimim",
+      "type": "text",
+      "title": "Ben kimim?",
+      "scrollLength": 1.5,
+      "body": "Gaziantep'te yaşıyorum, Solstage Yazılım'da **mobil** uygulamalar geliştiriyorum. 5 yıldır **Flutter** ile uğraşıyorum, 3 yıldır bu işi profesyonel olarak yapıyorum; App Store ve Google Play'de **yayında** iki uygulamam var. Web tarafında Next.js ile siteler yapıyorum; bildiğimi sahnede ve atölyede anlatmayı da seviyorum."
+    },
+    {
+      "id": "isler",
+      "type": "video",
+      "title": "Neler yaptım?",
+      "scrollLength": 6,
+      "video": "video/coding.mp4",
+      "poster": "video/coding.jpg",
+      "videoMobile": "video/coding_mobile.mp4",
+      "posterMobile": "video/coding_mobile.jpg",
+      "overlays": [
+        {
+          "at": [
+            0.0,
+            0.3
+          ],
+          "title": "Projeler",
+          "body": "Aşağıda dördü var. Her biri için 'nasıl yaptın' sorusunun cevabı sohbette."
+        },
+        {
+          "at": [
+            0.45,
+            0.8
+          ],
+          "body": "Her projede aynı çizgi: tek kod tabanı, net mimari, ölçülebilir performans."
+        }
+      ]
+    },
+    {
+      "id": "projeler",
+      "type": "projects",
+      "title": "Projeler",
+      "scrollLength": 2.5,
+      "projects": [
+        {
+          "name": "Gözüm Sende",
+          "description": "Ebeveynler için canlı izleme uygulaması: çocuğun oyun alanındayken kameralar telefonunda. Mobil uygulamayı baştan sona ben geliştirdim.",
+          "highlights": [
+            "QR kod ya da Mekan ID ile saniyeler içinde bağlan",
+            "Mekânı alan alan gez: oyun odası, bahçe, yemek alanı",
+            "Tek kamera tam ekran ya da dörtlü ızgara",
+            "Son bağlandığın mekânlar tek dokunuşta"
+          ],
+          "tags": [
+            "Flutter",
+            "iOS",
+            "Android"
+          ],
+          "url": null,
+          "links": [
+            {
+              "label": "App Store",
+              "url": "https://apps.apple.com/tr/app/g%C3%B6z%C3%BCm-sende/id6758147796?l=tr"
+            },
+            {
+              "label": "Google Play",
+              "url": "https://play.google.com/store/apps/details?id=com.solstage.gozum_sende"
+            }
+          ]
+        },
+        {
+          "name": "EventStage",
+          "description": "Toplulukların etkinlikleri için uygulama: keşfet, kaydol, katıl. Mobil uygulamayı baştan sona ben geliştirdim.",
+          "highlights": [
+            "Şehrindeki ve takip ettiğin toplulukların etkinlikleri",
+            "Tek dokunuşla kayıt, dolunca bekleme listesi",
+            "İnternetsiz açılan QR bilet, kapıda kiosk girişi",
+            "Oturumda soru ve puan, sonunda PDF sertifika"
+          ],
+          "tags": [
+            "Flutter",
+            "iOS",
+            "Android"
+          ],
+          "url": null,
+          "links": [
+            {
+              "label": "App Store",
+              "url": "https://apps.apple.com/tr/app/eventstage/id6820660878?l=tr"
+            },
+            {
+              "label": "Google Play",
+              "url": "https://play.google.com/store/apps/details?id=com.solstage.eventstage"
+            }
+          ]
+        },
+        {
+          "name": "Web siteleri",
+          "description": "Solstage'da müşteriler için Next.js ile geliştirdiğim 8 kurumsal site. Topluluktan mimarlığa, şaraptan araç kiralamaya farklı sektörler.",
+          "tags": [
+            "Next.js",
+            "Web"
+          ],
+          "url": null,
+          "links": [
+            {
+              "label": "GDG Gaziantep",
+              "url": "https://gdggaziantep.com"
+            },
+            {
+              "label": "ENTAM",
+              "url": "https://entamcyprus.com"
+            },
+            {
+              "label": "BAFF Mimarlık",
+              "url": "https://baffmimarlik.com"
+            },
+            {
+              "label": "Château Perrou",
+              "url": "https://chateauperrou.com"
+            },
+            {
+              "label": "Atilla Rent A Car",
+              "url": "https://atillarentacar.com"
+            },
+            {
+              "label": "Tek Kibrit",
+              "url": "https://tekkibrit.com"
+            },
+            {
+              "label": "ProTeknik Spor",
+              "url": "https://proteknikspor.com"
+            },
+            {
+              "label": "Tappırbox",
+              "url": "https://tappırbox.com"
+            }
+          ]
+        },
+        {
+          "name": "mustafakara.website",
+          "description": "Bu site. Tek sayfalık, kaydırdıkça ilerleyen bir portfolyo; repo açık, klonla, kendininkini yap.",
+          "highlights": [
+            "Flutter Web, WebAssembly ile derlendi",
+            "Kaydırmayla kare kare ilerleyen video",
+            "Gemini sohbet, tarayıcıda anahtar yok",
+            "Kodun tamamı yapay zeka ajanlarıyla yazıldı"
+          ],
+          "tags": [
+            "Flutter Web",
+            "Firebase",
+            "Gemini"
+          ],
+          "url": "https://github.com/MustafaKARAdev/portfolio_scrollytelling"
+        }
+      ]
+    },
+    {
+      "id": "nasil-calisiyorum",
+      "type": "text",
+      "title": "Nasıl çalışıyorum?",
+      "scrollLength": 1.5,
+      "body": "Önce **dinlerim**: kim kullanacak, neye ihtiyacı var. Sonra sade bir mimari kurar, küçük adımlarla ilerler, her adımı gerçek cihazda denerim. İş mağazaya çıkınca **bitmez**; ölçer, düzeltir, geliştirmeye **devam** **ederim**."
+    },
+    {
+      "id": "iletisim",
+      "type": "contact",
+      "title": "İletişim",
+      "scrollLength": 1,
+      "body": "Birlikte bir şey yapalım.\nFreelance iş, konuşma ya da eğitim daveti için yaz; sohbet de hep açık.",
+      "links": [
+        {
+          "label": "E-posta",
+          "url": "mailto:mustafaakaara@gmail.com"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/MustafaKARAdev"
+        },
+        {
+          "label": "LinkedIn",
+          "url": "https://www.linkedin.com/in/mustafakara0/"
+        },
+        {
+          "label": "Instagram",
+          "url": "https://www.instagram.com/mustafaakaara/"
+        }
+      ]
+    }
+  ]
+}

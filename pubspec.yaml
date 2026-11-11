@@ -1,0 +1,47 @@
+# Paket tanımı: bağımlılıklar, içerik dosyaları (story.json, about_me.md) ve Inter font ailesi.
+name: portfolio_scrollytelling
+description: "Kaydırdıkça anlatan tek sayfalık portfolyo — Flutter Web + Firebase AI Logic (Gemini). Workshop şablonu."
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.13.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Firebase çekirdeği; Firebase.initializeApp (main.dart)
+  firebase_core: ^5.1.0
+  # Firebase AI Logic — Gemini'ye tek erişim yolu, API key yok (AGENTS.md §2 karar 6)
+  firebase_ai: ^5.1.0
+  # App Check (reCAPTCHA Enterprise) — AI Logic istekleri bunsuz reddedilir (AGENTS.md §6)
+  firebase_app_check: ^0.5.1
+  # Ham HTMLVideoElement ve tarayıcı yardımcıları; yalnızca lib/web/ import eder (AGENTS.md §2 karar 3)
+  web: ^1.1.2
+  # Responsive ölçek; yalnızca lib/theme/ ve app.dart import eder (AGENTS.md §11.3)
+  flutter_screenutil: ^5.9.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  # Lint kuralları; analysis_options.yaml bunu genişletir (AGENTS.md §11.4)
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/story.json
+    - assets/about_me.md
+
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Inter-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Inter-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Inter-Bold.ttf
+          weight: 700

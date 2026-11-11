@@ -1,0 +1,20 @@
+// Placeholder Firebase ayarı. `tools/setup.sh` bunu `lib/firebase_options.dart` olarak kopyalar.
+// Gerçek değerler: `flutterfire configure --platforms=web` (README adım 2); o komut dosyayı yerinde
+// günceller ya da ezer. Kod Firebase'in bağlı olup olmadığını yalnızca
+// `currentPlatform.apiKey == 'PLACEHOLDER'` koşuluyla anlar (AGENTS.md §6).
+// ignore_for_file: type=lint
+import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
+
+/// flutterfire configure çıktısıyla aynı arayüz; tüm alanlar placeholder.
+class DefaultFirebaseOptions {
+  static FirebaseOptions get currentPlatform => web;
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'PLACEHOLDER',
+    appId: 'PLACEHOLDER',
+    messagingSenderId: 'PLACEHOLDER',
+    projectId: 'PLACEHOLDER',
+    authDomain: 'PLACEHOLDER',
+    storageBucket: 'PLACEHOLDER',
+  );
+}
