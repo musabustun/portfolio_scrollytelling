@@ -1,0 +1,131 @@
+{
+  "meta": {
+    "title": "<ADIN> — <UNVANIN>",
+    "owner": "<ADIN>",
+    "tagline": "Merhaba, ben <ADIN>.",
+    "accent": "#C8F04E",
+    "background": "#0A0A0A"
+  },
+  "chapters": [
+    {
+      "id": "acilis",
+      "type": "video",
+      "title": "Açılış",
+      "scrollLength": 4,
+      "video": "video/sample_intro.mp4",
+      "poster": "video/sample_intro.jpg",
+      "overlays": [
+        {
+          "at": [0.0, 0.25],
+          "title": "<ADIN>",
+          "body": "<NE İŞ YAPTIĞINI TEK CÜMLEYLE YAZ>. <KİMİN İÇİN, NEYİ ÇÖZDÜĞÜNÜ EKLE>."
+        },
+        {
+          "at": [0.35, 0.6],
+          "body": "<KAÇ> yıldır <NE> yapıyorum. <RAKAMLA BİR BAŞARI>."
+        },
+        {
+          "at": [0.7, 1.0],
+          "body": "<BİR DE ŞUNU SEVERİM: HOBİN YA DA İKİNCİ YÖNÜN>."
+        }
+      ]
+    },
+    {
+      "id": "ben-kimim",
+      "type": "text",
+      "title": "Ben kimim?",
+      "scrollLength": 1.5,
+      "body": "<ŞEHİR>'de yaşıyorum, <ŞİRKET ya da serbest> olarak **<ALANIN>** alanında çalışıyorum. <KAÇ> yıldır <TEKNOLOJİ> ile uğraşıyorum; <BİR ÜRÜNÜN YA DA İŞİN> şu an **yayında**. Bildiğimi paylaşmayı da seviyorum, bir de **<HOBİN>** işim."
+    },
+    {
+      "id": "isler",
+      "type": "video",
+      "title": "Neler yaptım?",
+      "scrollLength": 4,
+      "video": "video/sample_work.mp4",
+      "poster": "video/sample_work.jpg",
+      "overlays": [
+        {
+          "at": [0.0, 0.3],
+          "title": "Projeler",
+          "body": "Aşağıda birkaçı var. Her biri için 'nasıl yaptın' sorusunun cevabı sohbette."
+        },
+        {
+          "at": [0.45, 0.8],
+          "body": "Her projede aynı çizgi: <İLKEN 1>, <İLKEN 2>, <İLKEN 3>."
+        }
+      ]
+    },
+    {
+      "id": "projeler",
+      "type": "projects",
+      "title": "Projeler",
+      "scrollLength": 2.5,
+      "projects": [
+        {
+          "name": "<PROJE 1>",
+          "description": "<KİM KULLANIR>, <NEYİ ÇÖZER>. <SENİN ROLÜN>.",
+          "highlights": [
+            "<ÖNE ÇIKAN ÖZELLİK 1>",
+            "<ÖNE ÇIKAN ÖZELLİK 2>",
+            "<ÖNE ÇIKAN ÖZELLİK 3>",
+            "<ÖNE ÇIKAN ÖZELLİK 4>"
+          ],
+          "tags": ["<TEKNOLOJİ 1>", "iOS", "Android"],
+          "url": null,
+          "links": [
+            { "label": "App Store", "url": "https://example.com" },
+            { "label": "Google Play", "url": "https://example.com" }
+          ]
+        },
+        {
+          "name": "<PROJE 2>",
+          "description": "<KİM KULLANIR>, <NEYİ ÇÖZER>. <SENİN ROLÜN>.",
+          "highlights": [
+            "<ÖNE ÇIKAN ÖZELLİK 1>",
+            "<ÖNE ÇIKAN ÖZELLİK 2>",
+            "<ÖNE ÇIKAN ÖZELLİK 3>",
+            "<ÖNE ÇIKAN ÖZELLİK 4>"
+          ],
+          "tags": ["<TEKNOLOJİ 1>", "<TEKNOLOJİ 2>"],
+          "url": "https://example.com"
+        },
+        {
+          "name": "<PROJE 3>",
+          "description": "<KAÇ> site: <FARKLI SEKTÖRLERDEN ÖRNEKLER>.",
+          "tags": ["<TEKNOLOJİ 1>", "Web"],
+          "url": null,
+          "links": [
+            { "label": "Site 1", "url": "https://example.com" },
+            { "label": "Site 2", "url": "https://example.com" },
+            { "label": "Site 3", "url": "https://example.com" },
+            { "label": "Site 4", "url": "https://example.com" },
+            { "label": "Site 5", "url": "https://example.com" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nasil-calisiyorum",
+      "type": "text",
+      "title": "Nasıl çalışıyorum?",
+      "scrollLength": 1.5,
+      "body": "Önce **dinlerim**: <KİM KULLANACAK>, <NEYE İHTİYACI VAR>. Sonra <ÇALIŞMA ŞEKLİN>. İş yayına çıkınca **bitmez**; ölçer, düzeltir, **geliştiririm**."
+    },
+    {
+      "id": "iletisim",
+      "type": "contact",
+      "title": "İletişim",
+      "scrollLength": 1,
+      "body": "Birlikte bir şey yapalım.\n<HANGİ İŞLER İÇİN YAZILABİLİR>; sohbet de hep açık.",
+      "links": [
+        { "label": "E-posta", "url": "mailto:sen@example.com" },
+        { "label": "GitHub", "url": "https://github.com/<KULLANICI_ADIN>" },
+        {
+          "label": "LinkedIn",
+          "url": "https://www.linkedin.com/in/<KULLANICI_ADIN>/"
+        }
+      ]
+    }
+  ]
+}

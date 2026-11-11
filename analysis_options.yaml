@@ -1,0 +1,16 @@
+# Lint ayarları: flutter_lints + AGENTS.md §11.4'teki ek kurallar. `flutter analyze` sıfır uyarı vermeli.
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude:
+    - build/**
+    - web/**
+
+linter:
+  rules:
+    prefer_const_constructors: true
+    prefer_const_literals_to_create_immutables: true
+    prefer_final_locals: true
+    require_trailing_commas: true
+    sort_constructors_first: true
+    avoid_print: true

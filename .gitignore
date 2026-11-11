@@ -1,0 +1,39 @@
+# Çeşitli
+*.class
+*.log
+*.swp
+.DS_Store
+.build/
+.buildlog/
+.history
+
+# IntelliJ / Android Studio
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Flutter / Dart / Pub
+**/doc/api/
+.dart_tool/
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+/coverage/
+
+# Widget Preview
+.widget_preview/
+
+# Sıfır sır politikası (AGENTS.md §2 karar 7) — bunlar asla commit edilmez
+lib/firebase_options.dart
+.firebaserc
+.firebase/
+*.env
+.env.*
+*.local
+*service-account*.json
+*-firebase-adminsdk-*.json
+
+# Ham Flow çıktıları (encode edilmemiş, büyük) — yalnızca lokalde durur; repoya tools/encode.sh çıktısı girer
+raw/
